@@ -243,7 +243,7 @@ export default function Home() {
 
         {/* Intro Hero Section */}
         <section style={{ textAlign: "center", marginBottom: "3rem" }}>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: "700", marginBottom: "0.75rem", background: "linear-gradient(135deg, #fff 0%, #a78bfa 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <h1 style={{ fontSize: "2.5rem", fontWeight: "800", marginBottom: "0.75rem", color: "var(--primary)" }}>
             AI-Powered CRM Lead Ingestor
           </h1>
           <p style={{ color: "var(--text-secondary)", fontSize: "1.125rem", maxWidth: "600px", margin: "0 auto" }}>
@@ -251,8 +251,8 @@ export default function Home() {
           </p>
         </section>
 
-        {/* Error Banner */}
-        {errorMessage && importState !== "importing" && (
+        {/* Error Banner (only for inline non-terminal errors) */}
+        {errorMessage && importState !== "importing" && importState !== "error" && (
           <div className="error-banner">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
@@ -291,6 +291,28 @@ export default function Home() {
           </div>
         )}
 
+        {/* STEP: Error State with Reupload Capability */}
+        {importState === "error" && (
+          <div className="glass-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <div className="error-banner" style={{ width: "100%", maxWidth: "600px", margin: "1rem auto 2rem" }}>
+              <div className="error-banner-content">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+                </svg>
+                <div style={{ fontWeight: 700, fontSize: "1.1rem" }}>Ingestion Error</div>
+              </div>
+              <div style={{ marginTop: "0.5rem", opacity: 0.9 }}>{errorMessage}</div>
+            </div>
+            
+            <button className="btn-primary" onClick={resetImporter}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" style={{ width: "1.25rem", height: "1.25rem", marginRight: "0.25rem" }}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+              </svg>
+              Go Back & Reupload
+            </button>
+          </div>
+        )}
+
         {/* STEP 2: Preview State */}
         {importState === "preview" && (
           <div className="glass-card">
@@ -298,7 +320,7 @@ export default function Home() {
               <div>
                 <h2 className="card-title">Preview Uploaded Leads</h2>
                 <p className="card-subtitle" style={{ marginBottom: 0 }}>
-                  File: <strong style={{ color: "#fff" }}>{file?.name}</strong> ({rawRecords.length} rows detected)
+                  File: <strong style={{ color: "var(--primary)" }}>{file?.name}</strong> ({rawRecords.length} rows detected)
                 </p>
               </div>
               <div className="flex-row-gap">
@@ -356,7 +378,7 @@ export default function Home() {
                 <div className="progress-fill" style={{ width: `${progress}%` }}></div>
               </div>
               
-              <div style={{ color: "#fff", fontWeight: 600, fontSize: "1.1rem" }}>
+              <div style={{ color: "var(--primary)", fontWeight: 700, fontSize: "1.15rem" }}>
                 {progress}% Complete
               </div>
               <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem", marginTop: "0.5rem" }}>
@@ -443,7 +465,7 @@ export default function Home() {
                           {importedLeads.map((lead, idx) => (
                             <tr key={idx}>
                               <td>{formatDate(lead.created_at)}</td>
-                              <td style={{ fontWeight: 600, color: "#fff" }}>{lead.name || "—"}</td>
+                              <td style={{ fontWeight: 700, color: "var(--primary)" }}>{lead.name || "—"}</td>
                               <td>{lead.email || "—"}</td>
                               <td>
                                 {lead.country_code ? `${lead.country_code} ` : ""}

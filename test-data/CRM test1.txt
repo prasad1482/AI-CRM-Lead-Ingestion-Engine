@@ -1,0 +1,4 @@
+full_name,email,phone_number,created_time,campaign_name,custom_question_budget
+Alex Johnson,alex.j@gmail.com,+14155552671,2026-03-10T14:20:00Z,FB_Retargeting_Q1,$5000 - $10000
+Priya Patel,priya.patel@outlooks.com,+12125550198,2026-03-11T09:15:00Z,FB_Lookalike_Leads,Under $1000
+Carlos Gomez,carlos.g@solutions.net,+13055550112,2026-03-11T11:45:00Z,FB_Search_Ads,$10000+

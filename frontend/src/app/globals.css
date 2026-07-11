@@ -2,28 +2,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-primary: #030303;
-  --bg-secondary: #0a0a0f;
-  --bg-card: rgba(20, 20, 28, 0.55);
-  --bg-card-hover: rgba(28, 28, 38, 0.7);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-color-hover: rgba(255, 255, 255, 0.16);
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6faf9; /* Faint brand sage tint background */
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --border-color: rgba(36, 93, 86, 0.15); /* Brand teal border */
+  --border-color-hover: rgba(36, 93, 86, 0.35);
+  --text-primary: rgb(31, 20, 19); /* GrowEasy charcoal text color */
+  --text-secondary: rgb(73, 107, 101); /* Sage green */
+  --text-muted: rgb(109, 113, 101); /* Olive gray */
   
-  --primary: #8b5cf6;
-  --primary-glow: rgba(139, 92, 246, 0.25);
-  --primary-hover: #a78bfa;
+  --primary: rgb(36, 93, 86); /* GrowEasy main brand teal */
+  --primary-glow: rgba(36, 93, 86, 0.08);
+  --primary-hover: rgb(24, 56, 53); /* Deep forest green */
   
-  --success: #10b981;
-  --success-glow: rgba(16, 185, 129, 0.15);
-  --warning: #f59e0b;
-  --warning-glow: rgba(245, 158, 11, 0.15);
-  --danger: #ef4444;
-  --danger-glow: rgba(239, 68, 68, 0.15);
-  --info: #3b82f6;
-  --info-glow: rgba(59, 130, 246, 0.15);
+  --accent-orange: rgb(232, 110, 66); /* GrowEasy Orange CTA color */
+  --accent-orange-hover: #d25a2e;
+  
+  --success: rgb(36, 93, 86);
+  --success-glow: rgba(36, 93, 86, 0.08);
+  --warning: rgb(232, 110, 66);
+  --warning-glow: rgba(232, 110, 66, 0.08);
+  --danger: #d32f2f;
+  --danger-glow: rgba(211, 47, 47, 0.08);
+  --info: rgb(112, 153, 147);
+  --info-glow: rgba(112, 153, 147, 0.08);
 }
 
 /* Reset and Global Styles */
@@ -35,164 +38,163 @@
 }
 
 body {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.5;
   overflow-x: hidden;
 }
 
-/* Abstract Background Glows */
+/* Faint Decorative Blobs matching the site's warm-minimal feel */
 .bg-glow-1 {
   position: absolute;
-  top: -10%;
-  left: 15%;
-  width: 500px;
-  height: 500px;
+  top: -15%;
+  left: 10%;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(136, 184, 177, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(100px);
   z-index: -1;
   pointer-events: none;
 }
 
 .bg-glow-2 {
   position: absolute;
-  bottom: 10%;
-  right: 10%;
-  width: 400px;
-  height: 400px;
+  bottom: -10%;
+  right: 5%;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
-  filter: blur(80px);
+  background: radial-gradient(circle, rgba(232, 110, 66, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(100px);
   z-index: -1;
   pointer-events: none;
 }
 
-/* Header styling */
+/* Header Styling - Elegant Light Brand Theme */
 .app-header {
   border-bottom: 1px solid var(--border-color);
-  background: rgba(3, 3, 3, 0.7);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 50;
-  padding: 1.25rem 2rem;
+  padding: 1.1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(36, 93, 86, 0.03);
 }
 
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .logo-badge {
-  background: linear-gradient(135deg, var(--primary) 0%, #3b82f6 100%);
-  color: white;
+  background: var(--accent-orange);
+  color: #ffffff;
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  -webkit-text-fill-color: white; /* overrides parent fill color */
 }
 
-/* Main Layout */
+/* Main Container */
 .app-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 3rem 1.5rem;
   position: relative;
 }
 
-/* Glass Card */
+/* Premium Card */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 2.25rem;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(36, 93, 86, 0.04);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-bottom: 2rem;
 }
 
 .glass-card:hover {
   border-color: var(--border-color-hover);
+  box-shadow: 0 6px 30px rgba(36, 93, 86, 0.08);
 }
 
 .card-title {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: var(--primary);
 }
 
 .card-subtitle {
-  font-size: 0.925rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   margin-bottom: 1.75rem;
 }
 
 /* Drag & Drop Zone */
 .dropzone {
-  border: 2px dashed var(--border-color);
+  border: 2px dashed rgba(36, 93, 86, 0.25);
   border-radius: 12px;
-  padding: 3rem 2rem;
+  padding: 3.5rem 2rem;
   text-align: center;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 220px;
+  min-height: 230px;
 }
 
 .dropzone:hover, .dropzone.active {
-  border-color: var(--primary);
-  background: rgba(139, 92, 246, 0.03);
-  box-shadow: 0 0 20px var(--primary-glow);
+  border-color: var(--accent-orange);
+  background: rgba(232, 110, 66, 0.02);
+  box-shadow: 0 0 16px rgba(232, 110, 66, 0.08);
 }
 
 .dropzone-icon {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   color: var(--primary);
   margin-bottom: 1.25rem;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
+  opacity: 0.85;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .dropzone:hover .dropzone-icon {
   transform: translateY(-5px);
+  color: var(--accent-orange);
 }
 
 .dropzone-text-main {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .dropzone-text-sub {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-/* Premium Button */
+/* Orange Brand CTA Button */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+  background: var(--accent-orange);
   color: #ffffff;
   border: none;
   padding: 0.75rem 1.75rem;
@@ -204,12 +206,12 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 3px 8px rgba(232, 110, 66, 0.25);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.5);
+  background: var(--accent-orange-hover);
+  box-shadow: 0 4px 15px rgba(232, 110, 66, 0.4);
   transform: translateY(-1px);
 }
 
@@ -223,11 +225,12 @@ body {
   box-shadow: none;
 }
 
+/* Brand Teal Secondary Button */
 .btn-secondary {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+  padding: 0.7rem 1.75rem;
   font-size: 0.95rem;
   font-weight: 600;
   border-radius: 8px;
@@ -239,8 +242,9 @@ body {
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--border-color-hover);
+  background: rgba(36, 93, 86, 0.05);
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
 }
 
 .btn-secondary:disabled {
@@ -256,7 +260,7 @@ body {
   margin-top: 1.5rem;
 }
 
-/* Statistics Grid */
+/* Statistics Grid - Bright Clean Cards */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -265,50 +269,56 @@ body {
 }
 
 .stat-card {
-  background: rgba(20, 20, 28, 0.4);
+  background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 15px rgba(36, 93, 86, 0.02);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
 }
 
 .stat-value {
   font-size: 2.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-primary);
   line-height: 1.2;
   margin-bottom: 0.25rem;
 }
 
 .stat-label {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .stat-card.success {
-  border-left: 4px solid var(--success);
-}
-.stat-card.success .stat-value {
-  color: var(--success);
-}
-
-.stat-card.skipped {
-  border-left: 4px solid var(--warning);
-}
-.stat-card.skipped .stat-value {
-  color: var(--warning);
-}
-
-.stat-card.total {
   border-left: 4px solid var(--primary);
 }
-.stat-card.total .stat-value {
+.stat-card.success .stat-value {
   color: var(--primary);
 }
 
-/* Circular/Linear Progress */
+.stat-card.skipped {
+  border-left: 4px solid var(--accent-orange);
+}
+.stat-card.skipped .stat-value {
+  color: var(--accent-orange);
+}
+
+.stat-card.total {
+  border-left: 4px solid var(--info);
+}
+.stat-card.total .stat-value {
+  color: var(--info);
+}
+
+/* Progress Tracking */
 .progress-container {
   display: flex;
   flex-direction: column;
@@ -321,41 +331,41 @@ body {
   width: 100%;
   max-width: 450px;
   height: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(36, 93, 86, 0.08);
   border-radius: 999px;
   margin-bottom: 1.25rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(36, 93, 86, 0.05);
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary) 0%, #3b82f6 100%);
+  background: linear-gradient(90deg, var(--primary) 0%, var(--accent-orange) 100%);
   border-radius: 999px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 2px 5px rgba(232, 110, 66, 0.2);
 }
 
 .progress-text {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
 .progress-subtext {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
 }
 
-/* Premium Responsive Table Container */
+/* Premium Light Table Container */
 .table-container {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   overflow: auto;
-  max-height: 480px; /* Vertical Scroll */
-  background: rgba(10, 10, 15, 0.3);
+  max-height: 480px;
+  background: #ffffff;
   margin-top: 1rem;
   position: relative;
 }
@@ -365,27 +375,32 @@ body {
   border-collapse: collapse;
   text-align: left;
   font-size: 0.875rem;
-  white-space: nowrap; /* Horizontal scroll support */
+  white-space: nowrap;
 }
 
 .lead-table th {
-  background-color: #0b0b12; /* Sticky Header color */
-  color: var(--text-primary);
+  background-color: var(--primary); /* Brand green table header */
+  color: #ffffff;
   font-weight: 600;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid var(--border-color);
-  position: sticky; /* Sticky Header */
+  padding: 0.95rem 1.25rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  position: sticky;
   top: 0;
   z-index: 10;
 }
 
 .lead-table td {
-  padding: 0.85rem 1.25rem;
+  padding: 0.9rem 1.25rem;
   border-bottom: 1px solid var(--border-color);
-  color: var(--text-secondary);
+  color: var(--text-primary);
   max-width: 250px;
   overflow: hidden;
   text-overflow: ellipsis;
+  background-color: #ffffff;
+}
+
+.lead-table tr:nth-child(even) td {
+  background-color: rgba(36, 93, 86, 0.015); /* Ultra soft green row striping */
 }
 
 .lead-table tr:last-child td {
@@ -393,56 +408,56 @@ body {
 }
 
 .lead-table tr:hover td {
-  background-color: rgba(255, 255, 255, 0.02);
-  color: #fff;
+  background-color: rgba(36, 93, 86, 0.05) !important;
+  color: var(--primary-hover);
 }
 
-/* Status Badges */
+/* Status Badges conforming to Brand colors */
 .badge {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.65rem;
   border-radius: 6px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .badge-success {
-  background-color: var(--success-glow);
-  color: var(--success);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background-color: rgba(36, 93, 86, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(36, 93, 86, 0.15);
 }
 
 .badge-warning {
-  background-color: var(--warning-glow);
-  color: var(--warning);
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  background-color: rgba(232, 110, 66, 0.08);
+  color: var(--accent-orange);
+  border: 1px solid rgba(232, 110, 66, 0.15);
 }
 
 .badge-danger {
   background-color: var(--danger-glow);
   color: var(--danger);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(211, 47, 47, 0.15);
 }
 
 .badge-info {
-  background-color: var(--info-glow);
-  color: var(--info);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background-color: rgba(112, 153, 147, 0.08);
+  color: rgb(73, 107, 101);
+  border: 1px solid rgba(112, 153, 147, 0.15);
 }
 
 .badge-primary {
-  background-color: var(--primary-glow);
+  background-color: rgba(136, 184, 177, 0.12);
   color: var(--primary);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(136, 184, 177, 0.25);
 }
 
 /* Results panel tabs */
 .tabs {
   display: flex;
   gap: 0.5rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid var(--border-color);
   margin-bottom: 1.5rem;
 }
 
@@ -452,40 +467,47 @@ body {
   border: none;
   border-bottom: 2px solid transparent;
   color: var(--text-secondary);
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.95rem;
 }
 
 .tab:hover {
-  color: #fff;
+  color: var(--primary);
 }
 
 .tab.active {
-  color: var(--primary);
-  border-bottom-color: var(--primary);
+  color: var(--accent-orange);
+  border-bottom-color: var(--accent-orange);
 }
 
-/* Error banner */
+/* Error Banner - clean, visible red layout */
 .error-banner {
-  background-color: var(--danger-glow);
+  background-color: rgba(211, 47, 47, 0.03);
   color: var(--danger);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  padding: 1rem 1.5rem;
+  border: 1.5px solid rgba(211, 47, 47, 0.2);
+  padding: 1.25rem 1.5rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.02);
+}
+
+.error-banner-content {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 0.925rem;
-  font-weight: 500;
 }
 
 .error-banner svg {
   flex-shrink: 0;
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.4rem;
+  height: 1.4rem;
 }
 
 /* Utility classes */
@@ -508,15 +530,13 @@ body {
 
 @keyframes pulse-animation {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.8;
   }
   50% {
     opacity: 1;
-    text-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
   }
 }
 
 .glow-text {
   color: var(--primary);
-  text-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
 }
