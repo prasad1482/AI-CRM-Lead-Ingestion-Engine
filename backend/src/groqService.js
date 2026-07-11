@@ -13,7 +13,7 @@ const groq = new Groq({
 });
 
 // Using Llama-3-70b for high accuracy and reasoning capability on mappings
-const DEFAULT_MODEL = 'llama3-70b-8192';
+const DEFAULT_MODEL = 'llama-3.3-70b-versatile';
 
 /**
  * Process a batch of raw records through Groq LLM
